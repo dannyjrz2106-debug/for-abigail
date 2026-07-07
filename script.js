@@ -64,7 +64,6 @@ document.getElementById("yesBtn").addEventListener("click", () => {
     </section>
     `;
 });
-});
 
 const noBtn = document.getElementById("noBtn");
 
