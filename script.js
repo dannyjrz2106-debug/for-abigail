@@ -1,61 +1,49 @@
-// Iniciar música automáticamente cuando sea posible
-const music = document.getElementById("music");
-
-document.addEventListener("click", () => {
-    if (music) {
-        music.play().catch(() => {});
-    }
-}, { once: true });
-
 function comenzar() {
-    const inicio = document.getElementById("inicio");
-    const contenido = document.getElementById("contenido");
+    const hero = document.getElementById("hero");
+    const counterSection = document.getElementById("counterSection");
+    const gallery = document.getElementById("gallery");
+    const letter = document.getElementById("letter");
+    const proposal = document.getElementById("proposal");
+    const music = document.getElementById("bgMusic");
 
-    if (inicio) inicio.style.display = "none";
-    if (contenido) contenido.style.display = "block";
+    hero.style.display = "none";
+
+    counterSection.classList.remove("hidden");
+    gallery.classList.remove("hidden");
+    letter.classList.remove("hidden");
+    proposal.classList.remove("hidden");
 
     if (music) {
         music.play().catch(() => {});
     }
 
-    contenido.scrollIntoView({
-        behavior: "smooth"
-    });
+    actualizarContador();
+    setInterval(actualizarContador, 1000);
 }
 
-function responder(respuesta) {
-    const resultado = document.getElementById("resultado");
+function actualizarContador() {
+    const inicio = new Date("2025-11-29T00:00:00");
+    const ahora = new Date();
 
-    if (respuesta === "si") {
-        resultado.innerHTML = `
-            <h2 style="color:#7CFFB2;">
-                💙 Sabía que dirías que sí 💙
-            </h2>
+    const diferencia = ahora - inicio;
 
-            <p style="font-size:22px;line-height:1.8;">
-                Hoy comienza un nuevo capítulo para nosotros.<br><br>
+    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
+    const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
+    const segundos = Math.floor((diferencia / 1000) % 60);
 
-                Prometo cuidar de tu corazón, apoyarte en tus sueños,
-                hacerte reír cuando lo necesites y estar contigo
-                en los días buenos y en los difíciles.<br><br>
-
-                Gracias por regalarme la oportunidad de compartir
-                mi vida contigo.<br><br>
-
-                <strong>Te amo muchísimo, Abigail. 💙</strong>
-            </p>
-        `;
-    } else {
-        resultado.innerHTML = `
-            <h2>😢</h2>
-            <p>
-                Bueno... entonces tendré que seguir conquistándote
-                hasta que cambies de opinión. ❤️
-            </p>
-        `;
-    }
-
-    resultado.scrollIntoView({
-        behavior: "smooth"
-    });
+    document.getElementById("counter").innerHTML =
+        `<h2>${dias} días ${horas} horas ${minutos} minutos ${segundos} segundos ❤️</h2>`;
 }
+
+document.getElementById("yesBtn").addEventListener("click", () => {
+    alert("💙 ¡Me haces la persona más feliz del mundo! 💙");
+});
+
+const noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover", () => {
+    noBtn.style.position = "absolute";
+    noBtn.style.left = Math.random() * 80 + "%";
+    noBtn.style.top = Math.random() * 80 + "%";
+});
