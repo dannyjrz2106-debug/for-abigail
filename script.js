@@ -1,5 +1,4 @@
 function comenzar() {
-    alert("Funciona");
     const hero = document.getElementById("hero");
     const counterSection = document.getElementById("counterSection");
     const gallery = document.getElementById("gallery");
