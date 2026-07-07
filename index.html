@@ -2,163 +2,75 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Para Abigail 💙</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-font-family:Arial,sans-serif;
-background:linear-gradient(180deg,#180028,#2e0d52,#12001f);
-color:#fff;overflow-x:hidden;text-align:center;
-}
-section{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:30px}
-h1{font-size:3em}
-h2{margin:20px 0}
-button{
-padding:15px 30px;
-border:none;
-border-radius:30px;
-font-size:1.1em;
-cursor:pointer;
-margin:10px;
-}
-#yes{background:#ff4fa3;color:white}
-#no{background:white;color:#333;position:relative}
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:15px;
-width:100%;
-max-width:900px;
-}
-.gallery img{
-width:100%;
-border-radius:20px;
-box-shadow:0 0 20px rgba(255,255,255,.2);
-}
-.star{
-position:fixed;
-width:2px;height:2px;
-background:white;
-animation:twinkle 2s infinite alternate;
-}
-@keyframes twinkle{
-from{opacity:.2}
-to{opacity:1}
-}
-#counter{
-font-size:2em;
-margin:20px;
-}
-.message{
-max-width:800px;
-font-size:1.2em;
-line-height:1.8;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<section id="home">
-<h1>Hola, Abigail 💙</h1>
-<p>Preparé algo muy especial para ti...</p>
-<button onclick="start()">Comenzar ❤️</button>
-<audio id="music" controls style="margin-top:20px">
-<source src="yellow.mp3" type="audio/mpeg">
-</audio>
-<p style="font-size:.9em;margin-top:10px;">Coloca un archivo llamado <b>yellow.mp3</b> junto a este HTML.</p>
+<section id="hero">
+  <div class="stars"></div>
+  <div class="content">
+    <h1>Hola, Abigail 💙</h1>
+    <p>Preparé algo muy especial para ti...</p>
+    <button id="startBtn">Comenzar ❤️</button>
+    <audio id="bgMusic">
+      <source src="yellow.mp3" type="audio/mpeg">
+    </audio>
+  </div>
 </section>
 
-<section>
-<h2>Desde aquel 29 de noviembre de 2025...</h2>
-<div id="counter"></div>
+<section id="counterSection" class="hidden">
+  <h2>Desde aquel 29 de noviembre de 2025...</h2>
+  <div id="counter"></div>
 </section>
 
-<section>
-<h2>Nuestros recuerdos 📸</h2>
-<div class="gallery">
-<img src="images/foto1.jpg">
-<img src="images/foto2.jpg">
-<img src="images/foto3.jpg">
-<img src="images/foto4.jpg">
-</div>
-<p style="margin-top:20px">Guarda tus fotos con esos nombres dentro de una carpeta <b>images</b>.</p>
+<section id="gallery" class="hidden">
+  <h2>Nuestros recuerdos 📸</h2>
+  <div class="gallery">
+    <img src="images/foto1.jpg" alt="">
+    <img src="images/foto2.jpg" alt="">
+    <img src="images/foto3.jpg" alt="">
+    <img src="images/foto4.jpg" alt="">
+  </div>
 </section>
 
-<section>
+<section id="letter" class="hidden">
 <h2>Para ti, Abigail 💙</h2>
 
-<div class="message">
 <p>
-Hay personas que llegan a nuestra vida sin hacer ruido, y poco a poco terminan convirtiéndose en lo más bonito de nuestros días. Tú fuiste exactamente eso para mí.
-<br><br>
-Desde aquel <b>29 de noviembre de 2025</b>, cada conversación, cada abrazo, cada risa y cada momento contigo ha hecho que mi mundo se sienta mucho más especial. Contigo aprendí que la felicidad muchas veces está en las cosas más simples: una foto juntos, un atardecer, una salida cualquiera o simplemente tenerte cerca.
-<br><br>
-Gracias por ser tú, por hacerme sonreír incluso en los días difíciles y por regalarme recuerdos que voy a guardar siempre en mi corazón.
-<br><br>
-No sé qué nos depare el futuro, pero sí sé que quiero seguir construyendo momentos contigo, seguir tomándote de la mano, seguir riendo a tu lado y seguir eligiéndote una y otra vez.
-<br><br>
-<b>Hoy quiero dejar de imaginarlo y empezar a vivirlo contigo...</b>
+Hay personas que llegan a nuestra vida sin hacer ruido, y poco a poco terminan
+convirtiéndose en lo más bonito de nuestros días. Tú fuiste exactamente eso para mí.
 </p>
-</div>
+
+<p>
+Desde aquel <strong>29 de noviembre de 2025</strong>, cada conversación, cada abrazo,
+cada risa y cada momento contigo ha hecho que mi mundo se sienta mucho más especial.
+Contigo aprendí que la felicidad muchas veces está en las cosas más simples:
+una foto juntos, un atardecer, una salida cualquiera o simplemente tenerte cerca.
+</p>
+
+<p>
+Gracias por ser tú, por hacerme sonreír incluso en los días difíciles
+y por regalarme recuerdos que voy a guardar siempre en mi corazón.
+</p>
+
+<p>
+No sé qué nos depare el futuro, pero sí sé que quiero seguir construyendo
+momentos contigo, seguir tomándote de la mano, seguir riendo a tu lado
+y seguir eligiéndote una y otra vez.
+</p>
+
+<p><strong>Hoy quiero dejar de imaginarlo y empezar a vivirlo contigo...</strong></p>
 </section>
 
-<section>
+<section id="proposal" class="hidden">
 <h1>💙 Abigail...</h1>
 <h2>¿Quieres ser mi novia?</h2>
-<button id="yes" onclick="yes()">❤️ Sí, quiero</button>
-<button id="no">No</button>
+<button id="yesBtn">❤️ Sí, quiero</button>
+<button id="noBtn">No</button>
 </section>
 
-<script>
-for(let i=0;i<180;i++){
-let s=document.createElement("div");
-s.className="star";
-s.style.left=Math.random()*100+"vw";
-s.style.top=Math.random()*100+"vh";
-s.style.animationDelay=Math.random()*2+"s";
-document.body.appendChild(s);
-}
-
-function start(){
-document.getElementById("music").play().catch(()=>{});
-window.scrollTo({top:window.innerHeight,behavior:"smooth"});
-}
-
-const startDate=new Date("2025-11-29T00:00:00");
-function update(){
-let now=new Date();
-let diff=now-startDate;
-let d=Math.floor(diff/86400000);
-let h=Math.floor(diff%86400000/3600000);
-let m=Math.floor(diff%3600000/60000);
-let s=Math.floor(diff%60000/1000);
-document.getElementById("counter").innerHTML=
-d+" días "+h+" horas "+m+" minutos "+s+" segundos";
-}
-setInterval(update,1000);update();
-
-const no=document.getElementById("no");
-no.addEventListener("mouseover",()=>{
-no.style.position="fixed";
-no.style.left=Math.random()*80+"vw";
-no.style.top=Math.random()*80+"vh";
-});
-
-function yes(){
-document.body.innerHTML=`<section style="min-height:100vh">
-<h1>💙 ¡Me hiciste la persona más feliz del mundo!</h1>
-<h2>Gracias por decir que sí ❤️</h2>
-<p style="max-width:700px;font-size:1.3em;line-height:1.8">
-Prometo cuidar de lo nuestro, hacerte sonreír cuando más lo necesites,
-apoyarte en cada paso y recordarte todos los días lo increíble que eres.
-<br><br>
-Te quiero muchísimo, Abigail. ❤️
-<br><br>
-Con todo mi cariño,<br><b>Danny</b>
-</p></section>`;
-}
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
