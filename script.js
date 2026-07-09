@@ -16,8 +16,6 @@ function comenzar() {
         music.play().catch(() => {});
     }
 }
-
-
 document.getElementById("yesBtn").addEventListener("click", () => {
 
     document.getElementById("proposal").style.display = "none";
