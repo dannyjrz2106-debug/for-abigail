@@ -1,4 +1,3 @@
-alert("script cargado");
 function comenzar() {
     const hero = document.getElementById("hero");
     const counterSection = document.getElementById("counterSection");
