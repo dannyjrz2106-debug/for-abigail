@@ -15,12 +15,8 @@ function comenzar() {
     if (music) {
         music.play().catch(() => {});
     }
-
-    
 }
 
-
-}
 
 document.getElementById("yesBtn").addEventListener("click", () => {
 
