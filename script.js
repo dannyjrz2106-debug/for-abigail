@@ -37,32 +37,47 @@ function actualizarContador() {
 }
 
 document.getElementById("yesBtn").addEventListener("click", () => {
-    document.body.innerHTML = `
-    <section style="
-        min-height:100vh;
-        display:flex;
-        flex-direction:column;
-        justify-content:center;
-        align-items:center;
-        text-align:center;
-        background:linear-gradient(180deg,#180028,#2e0d52,#12001f);
-        color:white;
-        padding:30px;
-        font-family:Arial,sans-serif;
-    ">
-        <h1 style="font-size:3em;">💙 Gracias por decir que sí 💙</h1>
 
-        <p style="max-width:700px;font-size:1.3em;line-height:1.8;margin-top:25px;">
-        Hoy comienza una nueva historia para nosotros.
-        Prometo seguir haciéndote reír, cuidarte, apoyarte y construir
-        muchísimos recuerdos a tu lado.
-        </p>
+    document.getElementById("proposal").style.display = "none";
 
-        <h2 style="margin-top:35px;">
-        Te amo muchísimo, Abigail. ❤️
-        </h2>
-    </section>
-    `;
+    const counterSection = document.getElementById("counterSection");
+
+    counterSection.classList.remove("hidden");
+
+    counterSection.scrollIntoView({
+        behavior: "smooth"
+    });
+
+    const inicioNovios = new Date();
+
+    function actualizarNovios() {
+
+        const ahora = new Date();
+
+        const diferencia = ahora - inicioNovios;
+
+        const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
+        const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
+        const segundos = Math.floor((diferencia / 1000) % 60);
+
+        document.getElementById("counter").innerHTML = `
+            <h1 style="font-size:3em;">
+                ${dias} días
+            </h1>
+
+            <h2>
+                ${horas} horas
+                ${minutos} minutos
+                ${segundos} segundos ❤️
+            </h2>
+        `;
+    }
+
+    actualizarNovios();
+
+    setInterval(actualizarNovios, 1000);
+
 });
 
 const noBtn = document.getElementById("noBtn");
