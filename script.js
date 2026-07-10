@@ -28,7 +28,7 @@ document.getElementById("yesBtn").addEventListener("click", () => {
         behavior: "smooth"
     });
 
-    const inicioNovios = new Date();
+const inicioNovios = new Date("2026-07-10T11:01:00");
 
     function actualizarNovios() {
 
