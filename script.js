@@ -8,58 +8,43 @@ function comenzar() {
 
     hero.style.display = "none";
 
-    gallery.classList.remove("hidden");
-    letter.classList.remove("hidden");
-    proposal.classList.remove("hidden");
+gallery.classList.remove("hidden");
+letter.classList.remove("hidden");
+proposal.classList.remove("hidden");
+counterSection.classList.remove("hidden");
+
+actualizarNovios();
+setInterval(actualizarNovios, 1000);
 
     if (music) {
         music.play().catch(() => {});
     }
 }
-document.getElementById("yesBtn").addEventListener("click", () => {
+function actualizarNovios() {
 
-    document.getElementById("proposal").style.display = "none";
+    const inicioNovios = new Date("2026-07-10T11:01:00");
 
-    const counterSection = document.getElementById("counterSection");
+    const ahora = new Date();
 
-    counterSection.classList.remove("hidden");
+    const diferencia = ahora - inicioNovios;
 
-    counterSection.scrollIntoView({
-        behavior: "smooth"
-    });
+    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
+    const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
+    const segundos = Math.floor((diferencia / 1000) % 60);
 
-const inicioNovios = new Date("2026-07-10T11:01:00");
+    document.getElementById("counter").innerHTML = `
+        <h1 style="font-size:3em;">
+            ${dias} días
+        </h1>
 
-    function actualizarNovios() {
-
-        const ahora = new Date();
-
-        const diferencia = ahora - inicioNovios;
-
-        const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
-        const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
-        const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
-        const segundos = Math.floor((diferencia / 1000) % 60);
-
-        document.getElementById("counter").innerHTML = `
-            <h1 style="font-size:3em;">
-                ${dias} días
-            </h1>
-
-            <h2>
-                ${horas} horas
-                ${minutos} minutos
-                ${segundos} segundos ❤️
-            </h2>
-        `;
-    }
-
-    actualizarNovios();
-
-    setInterval(actualizarNovios, 1000);
-
-});
-
+        <h2>
+            ${horas} horas
+            ${minutos} minutos
+            ${segundos} segundos ❤️
+        </h2>
+    `;
+}
 const noBtn = document.getElementById("noBtn");
 
 noBtn.addEventListener("mouseover", () => {
